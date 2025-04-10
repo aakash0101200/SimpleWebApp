@@ -1,7 +1,7 @@
-package com.simpleWebApp.service;
+package com.webApp.simpleWebApp.service;
 
 
-import com.simpleWebApp.model.Product;
+import com.webApp.simpleWebApp.model.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -27,5 +27,26 @@ public class ProductService {
 
     public void addProduct(Product prod) {
         products.add(prod);
+    }
+
+    public void updateProduct(Product prod){
+        int index=0;
+
+        for(int i=0; i<products.size(); i++)
+            if(products.get(i).getProdId() == prod.getProdId())
+                index =i;
+
+        products.set(index,prod);
+    }
+
+    public void deleteProduct(int prodId) {
+        int index=0;
+
+        for(int i=0; i<products.size(); i++)
+            if(products.get(i).getProdId() == prodId)
+                index =i;
+
+
+        products.remove(index);
     }
 }

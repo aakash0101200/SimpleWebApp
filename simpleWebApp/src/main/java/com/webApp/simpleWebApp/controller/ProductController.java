@@ -1,13 +1,14 @@
-package com.webApp.simpleWebApp;
+package com.webApp.simpleWebApp.controller;
 
-import com.sky.simpleWebApp.model.Product;
-import com.sky.simpleWebApp.service.ProductService;
+import com.webApp.simpleWebApp.model.Product;
+import com.webApp.simpleWebApp.service.ProductService;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -23,12 +24,25 @@ public class ProductController {
 
     @GetMapping("/products/{prodId}")
     public Product getProductById(@PathVariable int prodId) {
+
         return service.getProductById(prodId);
     }
 
-    @Validated
     @PostMapping("/products")
     public void addProduct(@RequestBody Product prod) { //this used to bind request body data to Java objects
+
         service.addProduct(prod);
+
+    }
+
+    @PutMapping("/products")
+    public void updateProduct(@RequestBody Product prod){
+        System.out.println("I am here to find error");
+        service.updateProduct(prod);
+    }
+
+    @DeleteMapping("/products/{prodId}")
+    public void deleteProduct(@PathVariable int prodId){
+       service.deleteProduct(prodId);
     }
 }

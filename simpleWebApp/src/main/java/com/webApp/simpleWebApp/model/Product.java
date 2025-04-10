@@ -1,4 +1,4 @@
-package com.webApp.simpleWebApp;
+package com.webApp.simpleWebApp.model;
 
 
 import lombok.AllArgsConstructor;
