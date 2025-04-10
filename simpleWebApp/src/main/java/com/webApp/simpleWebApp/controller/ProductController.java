@@ -40,6 +40,17 @@ public class ProductController {
         System.out.println("I am here to find error");
         service.updateProduct(prod);
     }
+    /*Main Steps for Implementing PUT Requests:
+
+    Retrieve existing data using GET.
+
+    Accept updated data via a method annotated with @RequestBody.
+
+    Identify the target product by its ID.
+
+    Update the product details in the service layer.
+
+    Use PUT as the HTTP method to ensure the server handles the request properly.*/
 
     @DeleteMapping("/products/{prodId}")
     public void deleteProduct(@PathVariable int prodId){
